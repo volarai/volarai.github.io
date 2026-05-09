@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volar Ai Studio - Digital Innovation Partner</title>
+    <title>Volar Ai Studio - AI Development & Digital Transformation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,240 +14,494 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --accent-orange: #ff6b35;
+            --accent-orange-light: #ff8c5a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --border-color: #2a2a2a;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: #333;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animated Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at 20% 20%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
         }
 
         nav {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 1.5rem 2rem;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 2px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        .logo span {
+            color: var(--accent-orange);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
-            color: white;
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: opacity 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            opacity: 0.8;
+            color: var(--accent-orange);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 150px 2rem 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 2rem 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
             text-align: center;
         }
 
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            color: var(--accent-orange);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero h1 span {
+            color: var(--accent-orange);
         }
 
         .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            animation: fadeInUp 1s ease 0.3s both;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn {
             padding: 1rem 2.5rem;
-            border-radius: 50px;
+            border-radius: 5px;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 1s ease 0.6s both;
+            transition: all 0.3s;
+            font-size: 1rem;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            border: 2px solid var(--accent-orange);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-orange-light);
+            border-color: var(--accent-orange-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
+        /* Animated Brain Visualization */
+        .brain-container {
+            margin-top: 4rem;
+            position: relative;
+            height: 300px;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .brain-svg {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+        }
+
+        .brain-path {
+            fill: none;
+            stroke: var(--accent-orange);
+            stroke-width: 2;
+            opacity: 0.3;
+        }
+
+        .brain-node {
+            fill: var(--accent-orange);
+            opacity: 0.6;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
         }
 
         /* Sections */
         section {
-            padding: 80px 2rem;
-            max-width: 1200px;
+            padding: 100px 2rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #667eea;
+            margin-bottom: 4rem;
         }
 
-        /* About */
+        .section-tag {
+            display: inline-block;
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
         }
 
         .about-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #764ba2;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
         }
 
         .about-content p {
-            margin-bottom: 1rem;
-            color: #666;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
 
-        /* Services */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .about-visual {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 3rem;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .tech-tag {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            color: var(--accent-orange);
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tech-tag:hover {
+            background: rgba(255, 107, 53, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
         .services {
-            background: #f8f9fa;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            max-width: 100%;
+            padding: 100px 2rem;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
-            background: white;
-            padding: 2rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-orange), transparent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: var(--accent-orange);
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            padding: 1rem;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 10px;
         }
 
         .service-card h3 {
-            color: #667eea;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            color: var(--text-primary);
         }
 
         .service-card p {
-            color: #666;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
-        /* Industries */
-        .industries-grid {
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-orange);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover {
+            gap: 0.5rem;
+        }
+
+        /* Process Section */
+        .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            counter-reset: step;
         }
 
-        .industry-card {
+        .process-step {
             text-align: center;
             padding: 2rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            transition: border-color 0.3s, background 0.3s;
+            position: relative;
         }
 
-        .industry-card:hover {
-            border-color: #667eea;
-            background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%);
-        }
-
-        .industry-card h3 {
-            color: #764ba2;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Why Us */
-        .why-us {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .process-step::before {
+            counter-increment: step;
+            content: counter(step);
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            background: var(--accent-orange);
             color: white;
-        }
-
-        .why-us .section-title {
-            color: white;
-        }
-
-        .why-us-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .why-us-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .why-us-item h3 {
-            margin-bottom: 1rem;
+            border-radius: 50%;
             font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
         }
 
-        .why-us-item p {
-            opacity: 0.9;
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
         }
 
-        /* Contact */
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
         }
 
         .contact-info h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .contact-info p {
-            margin-bottom: 0.5rem;
-            color: #666;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-item span:first-child {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-orange);
         }
 
         .contact-form {
-            background: #f8f9fa;
-            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 10px;
+            padding: 2.5rem;
         }
 
         .form-group {
@@ -254,54 +511,64 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #333;
+            color: var(--text-primary);
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #e0e0e0;
+            padding: 1rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
             border-radius: 5px;
+            color: var(--text-primary);
             font-family: inherit;
+            font-size: 1rem;
             transition: border-color 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: var(--accent-orange);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--accent-orange);
             color: white;
             padding: 1rem 2rem;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
             width: 100%;
+            transition: all 0.3s;
         }
 
         .submit-btn:hover {
+            background: var(--accent-orange-light);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
         }
 
         /* Footer */
         footer {
-            background: #2c3e50;
-            color: white;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
             text-align: center;
-            padding: 2rem;
         }
 
         footer p {
-            opacity: 0.8;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         /* Animations */
@@ -317,35 +584,37 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
+        @media (max-width: 968px) {
+            .about-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
             }
 
             .nav-links {
                 display: none;
             }
 
-            section {
-                padding: 60px 1rem;
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <div class="bg-gradient"></div>
+    
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Volar Ai Studio</div>
+            <div class="logo">Volar<span>Ai</span> Studio</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#process">Process</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -353,157 +622,206 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Transform Your Business with AI & Digital Innovation</h1>
-        <p>We are your trusted partner in digital transformation, delivering cutting-edge solutions powered by artificial intelligence and advanced technologies.</p>
-        <a href="#contact" class="cta-button">Get Started</a>
+        <div class="hero-content">
+            <span class="hero-badge">🚀 AI-Powered Solutions</span>
+            <h1>We Build <span>Intelligent Systems</span> for Tomorrow</h1>
+            <p>Volar Ai Studio transforms businesses through cutting-edge artificial intelligence, machine learning, and digital innovation. From concept to deployment, we create solutions that drive real results.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Start Your Project</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+            
+            <!-- Animated Brain Visualization -->
+            <div class="brain-container">
+                <svg class="brain-svg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Neural Network Lines -->
+                    <path class="brain-path" d="M100,150 Q200,50 300,150 T500,150" />
+                    <path class="brain-path" d="M100,150 Q200,250 300,150 T500,150" />
+                    <path class="brain-path" d="M150,100 Q250,150 350,100" />
+                    <path class="brain-path" d="M150,200 Q250,150 350,200" />
+                    <path class="brain-path" d="M250,80 L300,150 L350,80" />
+                    <path class="brain-path" d="M250,220 L300,150 L350,220" />
+                    
+                    <!-- Nodes -->
+                    <circle class="brain-node" cx="100" cy="150" r="8" style="animation-delay: 0s" />
+                    <circle class="brain-node" cx="200" cy="100" r="6" style="animation-delay: 0.2s" />
+                    <circle class="brain-node" cx="200" cy="200" r="6" style="animation-delay: 0.4s" />
+                    <circle class="brain-node" cx="300" cy="150" r="10" style="animation-delay: 0.6s" />
+                    <circle class="brain-node" cx="400" cy="100" r="6" style="animation-delay: 0.8s" />
+                    <circle class="brain-node" cx="400" cy="200" r="6" style="animation-delay: 1s" />
+                    <circle class="brain-node" cx="500" cy="150" r="8" style="animation-delay: 1.2s" />
+                    <circle class="brain-node" cx="250" cy="80" r="5" style="animation-delay: 1.4s" />
+                    <circle class="brain-node" cx="350" cy="80" r="5" style="animation-delay: 1.6s" />
+                    <circle class="brain-node" cx="250" cy="220" r="5" style="animation-delay: 1.8s" />
+                    <circle class="brain-node" cx="350" cy="220" r="5" style="animation-delay: 2s" />
+                </svg>
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">About Volar Ai Studio</h2>
         <div class="about-grid">
             <div class="about-content">
-                <h3>Your Digital Transformation Partner</h3>
-                <p>Volar Ai Studio is a leading technology consultancy specializing in AI-driven solutions and digital transformation. We help businesses navigate the complex landscape of modern technology to achieve their strategic goals.</p>
-                <p>With expertise spanning cloud computing, artificial intelligence, data analytics, and enterprise solutions, we deliver innovative strategies that drive growth, efficiency, and competitive advantage.</p>
-                <p>Our team of experienced professionals works closely with clients to understand their unique challenges and craft tailored solutions that deliver measurable results.</p>
+                <span class="section-tag">About Us</span>
+                <h3>Transforming Ideas into Intelligent Reality</h3>
+                <p>At Volar Ai Studio, we specialize in developing custom AI solutions that solve complex business challenges. Our team of expert engineers, data scientists, and designers work collaboratively to deliver innovative products.</p>
+                <p>From natural language processing and computer vision to predictive analytics and automation, we leverage the latest technologies to create systems that learn, adapt, and evolve with your business needs.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
+                </div>
             </div>
-            <div class="about-image">
-                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🚀</div>
+            <div class="about-visual">
+                <div class="tech-tags">
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Deep Learning</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Neural Networks</span>
+                    <span class="tech-tag">Data Science</span>
+                    <span class="tech-tag">AI Ethics</span>
+                    <span class="tech-tag">MLOps</span>
+                    <span class="tech-tag">LLM</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🤖</div>
-                <h3>AI & Machine Learning</h3>
-                <p>Harness the power of artificial intelligence to automate processes, gain insights, and create intelligent applications that drive business value.</p>
+        <div class="services-container">
+            <div class="section-header">
+                <span class="section-tag">Our Expertise</span>
+                <h2 class="section-title">Comprehensive AI Solutions</h2>
+                <p class="section-subtitle">End-to-end services from strategy to implementation and beyond</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">☁️</div>
-                <h3>Cloud Solutions</h3>
-                <p>Design, migrate, and optimize cloud infrastructure on leading platforms. Achieve scalability, reliability, and cost-efficiency.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3>Data Analytics</h3>
-                <p>Transform raw data into actionable insights. Build robust data pipelines, dashboards, and predictive models.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💼</div>
-                <h3>Enterprise Solutions</h3>
-                <p>Implement and customize enterprise systems including CRM, ERP, and collaboration tools to streamline operations.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔒</div>
-                <h3>Cybersecurity</h3>
-                <p>Protect your digital assets with comprehensive security strategies, risk assessments, and compliance solutions.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📱</div>
-                <h3>Digital Experience</h3>
-                <p>Create exceptional customer and employee experiences through modern web, mobile, and omnichannel solutions.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries Section -->
-    <section id="industries">
-        <h2 class="section-title">Industries We Serve</h2>
-        <div class="industries-grid">
-            <div class="industry-card">
-                <h3>Healthcare</h3>
-                <p>Digital health solutions, patient engagement, and healthcare analytics</p>
-            </div>
-            <div class="industry-card">
-                <h3>Financial Services</h3>
-                <p>Fintech innovation, regulatory compliance, and risk management</p>
-            </div>
-            <div class="industry-card">
-                <h3>Retail & E-commerce</h3>
-                <p>Omnichannel experiences, personalization, and supply chain optimization</p>
-            </div>
-            <div class="industry-card">
-                <h3>Manufacturing</h3>
-                <p>Industry 4.0, IoT integration, and predictive maintenance</p>
-            </div>
-            <div class="industry-card">
-                <h3>Telecommunications</h3>
-                <p>Network optimization, customer experience, and 5G solutions</p>
-            </div>
-            <div class="industry-card">
-                <h3>Public Sector</h3>
-                <p>Digital government services, citizen engagement, and modernization</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Custom AI Development</h3>
+                    <p>Tailored machine learning models and AI systems designed specifically for your business requirements and data infrastructure.</p>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <h3>Natural Language Processing</h3>
+                    <p>Advanced NLP solutions including chatbots, sentiment analysis, text classification, and large language model integration.</p>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">👁️</div>
+                    <h3>Computer Vision</h3>
+                    <p>Image and video analysis systems for object detection, facial recognition, quality control, and visual inspection.</p>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Data-driven forecasting and decision support systems that help you anticipate trends and optimize operations.</p>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Process Automation</h3>
+                    <p>Intelligent automation solutions that streamline workflows, reduce manual tasks, and increase operational efficiency.</p>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3>AI Infrastructure</h3>
+                    <p>Scalable cloud-based AI platforms, MLOps pipelines, and deployment strategies for production-ready systems.</p>
+                    <a href="#contact" class="service-link">Learn More →</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Us Section -->
-    <section id="why-us" class="why-us">
-        <h2 class="section-title">Why Choose Volar Ai Studio</h2>
-        <div class="why-us-grid">
-            <div class="why-us-item">
-                <h3>🎯 Strategic Focus</h3>
-                <p>We align technology solutions with your business objectives to deliver maximum impact and ROI.</p>
+    <!-- Process Section -->
+    <section id="process">
+        <div class="section-header">
+            <span class="section-tag">How We Work</span>
+            <h2 class="section-title">Our Development Process</h2>
+            <p class="section-subtitle">A proven methodology that ensures quality and delivers results</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="process-step">
+                <h3>Discovery</h3>
+                <p>We analyze your business needs, data availability, and technical requirements to define the optimal AI solution.</p>
             </div>
-            <div class="why-us-item">
-                <h3>💡 Innovation First</h3>
-                <p>Stay ahead of the curve with cutting-edge technologies and forward-thinking approaches.</p>
+            <div class="process-step">
+                <h3>Strategy</h3>
+                <p>Our team creates a comprehensive roadmap with clear milestones, KPIs, and success metrics for your project.</p>
             </div>
-            <div class="why-us-item">
-                <h3>🤝 Partnership Approach</h3>
-                <p>We work as an extension of your team, committed to your success every step of the way.</p>
+            <div class="process-step">
+                <h3>Development</h3>
+                <p>Using agile methodologies, we build, train, and iterate on AI models with continuous feedback and validation.</p>
             </div>
-            <div class="why-us-item">
-                <h3>⚡ Agile Delivery</h3>
-                <p>Fast, flexible, and iterative development ensuring quick time-to-market and adaptability.</p>
-            </div>
-            <div class="why-us-item">
-                <h3>🌍 Global Expertise</h3>
-                <p>Leverage our international experience and best practices from diverse industries.</p>
-            </div>
-            <div class="why-us-item">
-                <h3>📈 Measurable Results</h3>
-                <p>Data-driven decisions and clear metrics to track progress and demonstrate value.</p>
+            <div class="process-step">
+                <h3>Deployment</h3>
+                <p>We deploy your solution to production with robust monitoring, ensuring reliability and scalability.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
         <div class="contact-container">
             <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p>Ready to start your digital transformation journey? Reach out to us today.</p>
-                <br>
-                <p><strong>Email:</strong> info@volarai.studio</p>
-                <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                <p><strong>Address:</strong> Innovation Hub, Tech District</p>
-                <br>
-                <p>Follow us on social media for the latest updates and insights.</p>
+                <span class="section-tag">Get In Touch</span>
+                <h3>Ready to Transform Your Business?</h3>
+                <p>Whether you have a specific project in mind or want to explore AI opportunities, our team is here to help. Let's discuss how we can drive innovation together.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>info@volarai.studio</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Innovation Hub, Tech District</span>
+                    </div>
+                </div>
             </div>
+            
             <div class="contact-form">
                 <form>
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required placeholder="john@company.com">
                     </div>
                     <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
@@ -513,8 +831,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Volar Ai Studio. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Empowering businesses through digital innovation</p>
+        <p>&copy; 2024 Volar Ai Studio. All rights reserved. | Building the Future with AI</p>
     </footer>
 
     <script>
@@ -533,19 +850,19 @@
         });
 
         // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
         });
 
-        // Header scroll effect
+        // Add scroll effect to header
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
-                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.background = 'rgba(10, 10, 10, 0.98)';
             } else {
-                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.background = 'rgba(10, 10, 10, 0.9)';
             }
         });
     </script>
