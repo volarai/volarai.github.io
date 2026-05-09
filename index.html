@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volar Ai Studio - Digital Innovation Partner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #764ba2;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        /* Services */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+        /* Industries */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .industry-card {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .industry-card:hover {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%);
+        }
+
+        .industry-card h3 {
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Why Us */
+        .why-us {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .why-us .section-title {
+            color: white;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-us-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .why-us-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .why-us-item p {
+            opacity: 0.9;
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 60px 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Volar Ai Studio</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Transform Your Business with AI & Digital Innovation</h1>
+        <p>We are your trusted partner in digital transformation, delivering cutting-edge solutions powered by artificial intelligence and advanced technologies.</p>
+        <a href="#contact" class="cta-button">Get Started</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Volar Ai Studio</h2>
+        <div class="about-grid">
+            <div class="about-content">
+                <h3>Your Digital Transformation Partner</h3>
+                <p>Volar Ai Studio is a leading technology consultancy specializing in AI-driven solutions and digital transformation. We help businesses navigate the complex landscape of modern technology to achieve their strategic goals.</p>
+                <p>With expertise spanning cloud computing, artificial intelligence, data analytics, and enterprise solutions, we deliver innovative strategies that drive growth, efficiency, and competitive advantage.</p>
+                <p>Our team of experienced professionals works closely with clients to understand their unique challenges and craft tailored solutions that deliver measurable results.</p>
+            </div>
+            <div class="about-image">
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🚀</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>AI & Machine Learning</h3>
+                <p>Harness the power of artificial intelligence to automate processes, gain insights, and create intelligent applications that drive business value.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">☁️</div>
+                <h3>Cloud Solutions</h3>
+                <p>Design, migrate, and optimize cloud infrastructure on leading platforms. Achieve scalability, reliability, and cost-efficiency.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Data Analytics</h3>
+                <p>Transform raw data into actionable insights. Build robust data pipelines, dashboards, and predictive models.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>Enterprise Solutions</h3>
+                <p>Implement and customize enterprise systems including CRM, ERP, and collaboration tools to streamline operations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔒</div>
+                <h3>Cybersecurity</h3>
+                <p>Protect your digital assets with comprehensive security strategies, risk assessments, and compliance solutions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Digital Experience</h3>
+                <p>Create exceptional customer and employee experiences through modern web, mobile, and omnichannel solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries">
+        <h2 class="section-title">Industries We Serve</h2>
+        <div class="industries-grid">
+            <div class="industry-card">
+                <h3>Healthcare</h3>
+                <p>Digital health solutions, patient engagement, and healthcare analytics</p>
+            </div>
+            <div class="industry-card">
+                <h3>Financial Services</h3>
+                <p>Fintech innovation, regulatory compliance, and risk management</p>
+            </div>
+            <div class="industry-card">
+                <h3>Retail & E-commerce</h3>
+                <p>Omnichannel experiences, personalization, and supply chain optimization</p>
+            </div>
+            <div class="industry-card">
+                <h3>Manufacturing</h3>
+                <p>Industry 4.0, IoT integration, and predictive maintenance</p>
+            </div>
+            <div class="industry-card">
+                <h3>Telecommunications</h3>
+                <p>Network optimization, customer experience, and 5G solutions</p>
+            </div>
+            <div class="industry-card">
+                <h3>Public Sector</h3>
+                <p>Digital government services, citizen engagement, and modernization</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us">
+        <h2 class="section-title">Why Choose Volar Ai Studio</h2>
+        <div class="why-us-grid">
+            <div class="why-us-item">
+                <h3>🎯 Strategic Focus</h3>
+                <p>We align technology solutions with your business objectives to deliver maximum impact and ROI.</p>
+            </div>
+            <div class="why-us-item">
+                <h3>💡 Innovation First</h3>
+                <p>Stay ahead of the curve with cutting-edge technologies and forward-thinking approaches.</p>
+            </div>
+            <div class="why-us-item">
+                <h3>🤝 Partnership Approach</h3>
+                <p>We work as an extension of your team, committed to your success every step of the way.</p>
+            </div>
+            <div class="why-us-item">
+                <h3>⚡ Agile Delivery</h3>
+                <p>Fast, flexible, and iterative development ensuring quick time-to-market and adaptability.</p>
+            </div>
+            <div class="why-us-item">
+                <h3>🌍 Global Expertise</h3>
+                <p>Leverage our international experience and best practices from diverse industries.</p>
+            </div>
+            <div class="why-us-item">
+                <h3>📈 Measurable Results</h3>
+                <p>Data-driven decisions and clear metrics to track progress and demonstrate value.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>Ready to start your digital transformation journey? Reach out to us today.</p>
+                <br>
+                <p><strong>Email:</strong> info@volarai.studio</p>
+                <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                <p><strong>Address:</strong> Innovation Hub, Tech District</p>
+                <br>
+                <p>Follow us on social media for the latest updates and insights.</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Volar Ai Studio. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Empowering businesses through digital innovation</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            }
+        });
+    </script>
+</body>
+</html>
